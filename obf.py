@@ -9,7 +9,7 @@ class Obfuscator:
         vars_found = set(re.findall(var_pattern, code))
         obfuscated_code = code
         for var in vars_found:
-            obfuscated_var = ''.join(random.choice('0O1l') for _ in range(6))
+            obfuscated_var = ''.join(random.choice('01') for _ in range(8))
             self.var_mapping[obfuscated_var] = var
             obfuscated_code = re.sub(r'\b' + var + r'\b', obfuscated_var, obfuscated_code)
         return obfuscated_code
